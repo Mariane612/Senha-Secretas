@@ -1,0 +1,166 @@
+/* 1. IMPORTAÇÃO DE FONTES */
+/* Importa as fontes 'Roboto' e 'Roboto Mono' diretamente do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+/* 2. VARIÁVEIS GLOBAIS (:root) */
+/* Define variáveis de cores e fontes para reaproveitar facilmente em todo o arquivo */
+:root{
+    --branco: white;
+    --cor-de-fundo: #00162E;
+    --fundo-senha: #00244D;
+    --fundo-texto: #001E40;
+    --borda: #0075FF;
+    --roboto: 'Roboto', sans-serif;
+    --roboto-mono: 'Roboto Mono', monospace;
+}
+
+/* 3. REGRAS GERAIS */
+/* O asterisco (*) seleciona TODOS os elementos da página e define peso normal para o texto */
+*{
+    font-weight: 400;
+}
+
+/* Estiliza a página inteira */
+body{
+    color: var(--branco);             /* Cor do texto geral */
+    background-color: var(--cor-de-fundo); /* Cor de fundo da tela */
+    font-family: var(--roboto);       /* Fonte padrão da página */
+}
+
+/* 4. TÍTULOS */
+.titulo-principal{
+    font-family: var(--roboto-mono);  /* Fonte monoespaçada para o título principal */
+    font-size: 32px;                 /* Tamanho do texto */
+}
+
+.titulo-secundario{
+    font-size: 24px;                 /* Tamanho do título secundário */
+}
+
+/* Envolvente do título */
+.conteudo-titulo{
+    text-align: center;              /* Centraliza o texto do título */
+    margin-top: 80px;                /* Espaço acima do título */
+}
+
+/* 5. SEÇÃO DO CAMPO DE SENHA */
+/* Caixa que envolve o campo onde a senha aparece */
+.conteudo-senha{
+    margin-top: 80px; 
+    background: var(--fundo-senha);  /* Fundo azul escuro */
+    padding: 24px;                   /* Espaçamento interno */
+    border-bottom: 6px solid var(--borda); /* Linha/borda azul na parte inferior */
+}
+
+/* O campo de texto (input) onde a senha é mostrada */
+#campo-senha{
+    background-color: var(--fundo-senha);
+    border: none;                    /* Remove a borda padrão do input */
+    color: var(--branco);
+    font-family: var(--roboto-mono);
+    font-size: 40px;                 /* Senha com texto bem grande */
+    width: 70%;                      /* Ocupa 70% da largura do contêiner */
+}
+
+/* Quando o usuário clica dentro do campo de senha */
+#campo-senha:focus{
+    outline: none;                   /* Remove a linha de destaque padrão de seleção */
+}
+
+/* 6. ESTRUTURA E CONTAINER */
+/* Limita a largura máxima da página para não esticar demais em telas muito grandes */
+.conteudo{
+    max-width: 1100px;
+    margin: 0 auto;                  /* Centraliza a caixa na tela */
+}
+
+/* Bloco principal dos parâmetros/opções de configuração da senha */
+.parametro{
+    background-color: var(--fundo-texto);
+    border: 2px solid var(--borda);   /* Borda azul ao redor da caixa */
+    margin-top: 32px;
+    padding: 24px;
+}
+
+.parametro-titulo{
+    font-family: var(--roboto-mono);
+    font-size: 28px;
+}
+
+.parametro-senha__titulo{
+    font-size: 24px;
+}
+
+/* 7. LAYOUT DOS PARÂMETROS DE SENHA */
+/* Empilha os elementos em coluna por padrão (pensado para celulares) */
+.parametro-coluna__senha{
+    display: flex;                   /* Ativa o modelo de caixa flexível */
+    flex-direction: column;          /* Organiza os itens em coluna (um em cima do outro) */
+    justify-content: center;         /* Centraliza os itens */
+}
+
+.parametro-senha{
+    width: 100%;                      /* Define a largura do bloco */
+    margin: 0 auto;                  /* Centraliza o bloco */
+}
+
+/* RESPONSIVIDADE (Media Query): Aplica regras apenas em telas maiores que 768px (Tablets/PCs) */
+@media screen and (min-width: 768px) {
+    .parametro-coluna__senha{
+        flex-direction: row;         /* Muda o alinhamento de coluna para linha (lado a lado) */
+    }
+}
+
+/* Container que alinha os botões no centro */
+.parametro-senha-botoes{
+    display: flex;
+    justify-content:left;
+}
+
+/* 8. BOTÕES E TEXTO DE AJUSTE (+ / -) */
+/* Estilo final consolidado do botão dos parâmetros */
+.parametro-senha__botao{
+    background-color: var(--fundo-texto);
+    color: var(--branco);
+    border: 2px solid var(--borda);
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;                 /* Transforma o ponteiro do mouse no ícone de "mãozinha" */
+}
+
+/* Estilo final consolidado do texto que fica entre os botões */
+.parametro-senha__texto{
+    padding: 12px;
+    border-top: 2px solid var(--borda);    /* Borda azul na parte superior */
+    border-bottom: 2px solid var(--borda); /* Borda azul na parte inferior */
+    margin: 0;
+    font-size: 20px;
+}
+
+.barra{
+    background-color: var(--fundo-senha);
+    height: 30px;
+    width: 100%;
+}
+.forca{
+    height: 30px;
+    position: relative;
+    bottom: 30px;
+}
+.fraca{
+    width: 25%;
+    background-color: #E71B32; 
+}
+
+.media{
+    background-color: #FAF408;
+    width: 50%;
+}
+.forte{
+    background-color: #00FF85;
+    width: 100%;
+}
+.parametro-senha-textos{
+    display: flex;
+    justify-content: space-between;
+}
